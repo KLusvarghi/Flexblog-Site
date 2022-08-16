@@ -325,3 +325,58 @@ img {
   }
   /* E por o cobre começar como order: 0, eu não preciso definir ele */
 }
+
+
+
+
+
+/* Qualidade */
+
+.qualidade {
+  max-width: 960px;
+  margin: 60px auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.qualidade-item {
+  flex: 1 1 300px; /* Definindo uma basis de 300px para que ele tenha esse minimo de 30px e se não der ele quebre em duas colunas */
+  margin: 20px 10px;
+}
+
+.qualidade-item h2 {
+  font-size: 2.5em;
+  color: var(--text-h2);
+  margin-bottom: 20px;
+}
+
+.qualidade-item h2::before { /* Fazendo um pseu do element que virá antes do conteudo */
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 30px;
+  margin-right: 10px;
+  /* background: blue; */
+}
+
+/* falando com o "qualidade-item", do item 1 e 4, que diz na expressão (3n+1) selecioando pelo pseu do selto, e com o before do h2 especificamente */
+
+/* A expressão (3n+1) signfica que eu quero aplicar a estilização ao item de numero "1", e que aplique tambem ao "item" que virá depois de 3 itens após o item de numero "1", assim contanto 3 itens após o priemiro, e o 3º item encontrado é que irá receber a estilização tambem  */
+.qualidade-item:nth-of-type(3n+1) h2::before {/* Sendo um pseu do seletor*/
+  background: var(--purple);
+}
+
+/* Agora pulando 3 itens ainda, porém começando a partir do 2º item */
+.qualidade-item:nth-of-type(3n+3) h2::before {
+  background: var(--pink);
+}
+
+.qualidade-item:nth-of-type(3n+2) h2::before {
+  background: var(--blue);
+}
+
+.qualidade-item p {
+  font-size: 1.25em;
+  line-height: 1.4;
+  color: var(--color-text)
+}
