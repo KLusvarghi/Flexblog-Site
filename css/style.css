@@ -1,11 +1,12 @@
 * {
   margin: 0;
   padding: 0;
+  text-decoration: none;
+  list-style: none;
 }
 
 body {
   color: #222222;
-  list-style: none;
   font-family: "Nunito", helvetica, arial, sans-serif;
   box-sizing: border-box; /* Para em textos grandes o conteúdo respeite o tamanho da box, assim quando definido uma box de 300px, ele não somre os 300px + op tamanho do conteúdo, e sim a box + o conúdo tenham no maximo juntos 300px */
 }
@@ -23,7 +24,11 @@ img {
 
 :root {
   --superinfo-bg: #122ab2;
+  --menu-bg: #2c70ff;
 }
+
+
+
 
 
 /* SuperInfo */
@@ -49,4 +54,49 @@ img {
 
 .superinfo a {
   color: #FFF;
+}
+
+
+
+
+
+/* Menu */
+
+.menu-bg {
+  background: var(--menu-bg);
+}
+
+.menu { /* Como eu quero que a "div" e a "nav" sejam display 'flex', é neste container que eu tenho que aplicar a estilização */
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 15px 0;
+  display: flex; /* Deixando um container ao lado do outro, assim os itens do nav ainda são display 'block', apenas o "nav" é display flex*/
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center; /* Alinhando os itens ao centro */
+}
+
+.menu a { /* Pegadando todos os a do "menu"*/
+  color: #FFF;
+}
+
+.menu-logo a { /* Falando com minha logo*/
+  font-size: 2.25em; /* Sendo 'em' uma medida que é dividida por 16 em relação a outra medida que seja 'px'*/
+  font-weight: bold;
+  margin: 0 10px; /* Passando esee margin para que quando diminua a tela o h1(logo) não fique grudado no contaiener direito e esquerdo, que é o canto do site */
+}
+
+.menu-nav ul{
+  display: flex; /* Para tornar os itens dentro do ul (lista) flexiveis*/
+  flex-wrap: wrap;
+}
+
+.menu-nav a {
+  font-size: 1.25em;
+  display: block; /* Por padrão a tag "a" é flex, passando o display block para que possamo influenciar no padding dele */
+  padding: 10px;
+}
+
+.menu-nav a:hover {
+  color: var(--superinfo-bg);
 }
