@@ -25,9 +25,9 @@ img {
 :root {
   --superinfo-bg: #122ab2;
   --menu-bg: #2c70ff;
-  --text-sobre: #7c7c7c;
-  --text-produtos-item: #a4a4a4;
-  --background-produtos-item: #f7f7f7;
+  --color-text: #7c7c7c;
+  --text-h2: #a4a4a4;
+  --background-sections: #f7f7f7;
   --purple: #ae81ff;
   --pink: #f9265e;
   --blue: #66d9eb;
@@ -159,7 +159,7 @@ img {
   font-size: 1.25em;
   line-height: 1.4;
   margin-bottom: 1em;
-  color: var(--text-sobre);
+  color: var(--color-text);
 }
 
 .sobre-img { /* Falando com a div que contem as imagens */
@@ -201,8 +201,8 @@ img {
 
 .produtos-item h2 {
   font-size: 3em;
-  color: var(--text-produtos-item);
-  background: var(--background-produtos-item);
+  color: var(--text-h2);
+  background: var(--background-sections);
   padding: 60px 20px;
 }
 
@@ -219,4 +219,109 @@ img {
 
   /* Caso eu queria alinhar esse item diferente dos outros eu utilzo o aling-self */
   /* align-self: center; */
+}
+
+
+
+
+
+/* Preços */
+
+.preco {
+  background: var(--background-sections);
+  padding: 60px; /* Espaçamento interno */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end; /* Alinhando os itens dentro dele ao final possivel do cantainer, já que nesse propriemo container (container master) tem padding (espaçamento interno), os itens não irão encostar na linha de baixo dele*/
+}
+
+.preco-item {
+  flex: 1; /* Querendo assim que os itens aumentem de ponta a ponta*/
+  border: 4px solid #FFF;
+  padding: 20px; /* Espaçamento interno do container */
+  margin: 10px; /* Espaçamento externo, fora do container*/
+
+  /* Em outros navegadores ele acaba não quebrando os itens como esperando, então para resolver isso podemos fazer de duas maneira: definindo um min-width; a Segunda forma é definir no flex: 1 1 260px */
+  min-width: 260px; /* DICA: colocando o min-width geralmente smepre abaixo de 280px, por que é o valor minimo que se tem de um telefone(mobile) */
+}
+
+.preco-item h2 {
+  font-size: 3em;
+  color: var(--text-h2);
+  text-align: center; /* Como é apenas um texto usamos a prorpiedade "text-aling" para posicionar o texto dentro de um container */
+  margin-top: 20px;
+}
+
+.preco-item span{
+  max-width: 300px;
+  margin: 20px auto; /* Dando um espaçamento externo de 20px em cima/baixo e auto para que ele de um espaçamento automatico para ambos os lados, para que não atrapalhe na hora de usar o "text-aling"*/
+  display: block; /* Por padrão "span" tem um display inline*/
+  font-size: 3em;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px 0 5px 0;
+  border-top: 4px solid #FFF;
+  border-bottom: 4px solid #FFF;
+}
+
+.produtos-item sup {
+  font-size: 1.3rem; /* Sendo a medida "rem" relativo a raiz, sendo a raiz em "px"*/
+}
+
+.preco-item ul {
+  max-width: 300px;
+  margin: 20px auto;
+  font-size: 1.25em; 
+  font-style: italic; /* Estilziação na fonte */
+  color: (var(--color-text));
+}
+
+.preco-item li {
+  display: flex; /* Fazendo com que o texto e a bolinha fiquem um ao lado do outro */
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px; /* Colocando margin-bottom invez de line-heigth, por conta que quando o conteúdo quebrar ficará um vazio bem grande entre os itens e a bolinha dicará estranha em uma reta grande e vazia */
+}
+
+.preco-item li::after { /* Criando um pseu do element; falando com depois do li */
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  background: var(--menu-bg);
+  border-radius: 50%;
+}
+
+.preco-item a {
+  max-width: 300px;
+  display: block;
+  margin: 20px auto;
+  border: 4px solid;
+  color: #222222;
+  text-transform: uppercase; /* Deixando todo o conteúdo em letra maiúscula */
+  font-weight: bold;
+  font-size: 2.25em;
+  padding: 15px 0;
+  text-align: center;
+}
+
+@media (max-width: 800px) { /* Quando ele chegar em 800px, no  caso quando ele for igual o umenor a 800px*/
+  .preco {
+    /* Tirando o paddind que ficou grande para um dipositivo mobile */
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+
+  /* Para dispositivos mobile chega a ser mais vantajoso o cliente ver priemiro o item mais vantajoso para mim vender, e para isso quando a tela for menor que 800px eu inverto a ordem dos itens */
+
+  /* Para isso, eu seleciono os itens que eu quero falar, já que todos os 3 tem a mesma classe, eu falo com o filho deles, usando "nth-child()", colocando dentro de parenteses o filho, sendo 1, 2 e 3 */
+  .preco .preco-item:nth-child(3){
+    order: -2 /* Sendo a order -2 a que vem priemiro do que 0 */
+  }
+
+  .preco .preco-item:nth-child(2){
+    order: -1 /* Sendo a order -1 a que vem priemiro do que 0 */
+  }
+  /* E por o cobre começar como order: 0, eu não preciso definir ele */
 }
