@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #222222;
+  list-style: none;
+  font-family: "Nunito", helvetica, arial, sans-serif;
+  box-sizing: border-box; /* Para em textos grandes o conteúdo respeite o tamanho da box, assim quando definido uma box de 300px, ele não somre os 300px + op tamanho do conteúdo, e sim a box + o conúdo tenham no maximo juntos 300px */
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%; /* Para que as imagens fiquem responsivas e não percam a qualidade */
+}
+
+/* Variable Color */
+
+:root {
+  --superinfo-bg: #122ab2;
+}
+
+
+/* SuperInfo */
+
+.superinfo-bg {
+  background: var(--superinfo-bg);
+  color: #FFF;
+}
+
+.superinfo {
+  max-width: 960px;
+  margin: 0 auto; /* 0 para cima/baixo e automatico para os lados, assim alinhando ao centro*/
+  display: flex; /* Ficando um ao lado do outro respeitando o tamanho certinho do elemento*/
+  justify-content: space-between; /* alinhando o conteudo com espaçamento entre os elementos*/
+  flex-wrap: wrap; /* para que o conteudo quebre para a proxima linha quando não couber mais na tela */
+  padding-top: 10px;
+}
+
+.superinfo p, .superinfo a {
+  margin: 0 10px 10px 10px;
+}
+
+
+.superinfo a {
+  color: #FFF;
+}
