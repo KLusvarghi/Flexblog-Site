@@ -25,6 +25,7 @@ img {
 :root {
   --superinfo-bg: #122ab2;
   --menu-bg: #2c70ff;
+  --text-sobre: #7c7c7c;
 }
 
 
@@ -99,4 +100,65 @@ img {
 
 .menu-nav a:hover {
   color: var(--superinfo-bg);
+}
+
+
+
+
+
+/* Introdução */
+
+.introducao {
+  font-size:3em;
+  line-height: 1; /* Altura da linha*/
+  max-width: 960px;
+  margin: 0 auto; /* Assim alinhando com o restante do conteúdo acima*/
+  padding: 60px 10px
+}
+
+
+
+
+
+/* Sobre */
+
+.sobre {
+  border-top: 1px solid var(--menu-bg); /* Criando linhas horizontais*/
+  border-top: 1px solid var(--menu-bg);
+  max-width: 960px;
+  margin: 0 auto; /* Assim alinhando ao centro */
+  padding: 60px 0; /* Para dar uma separada da linha ao "Sobre*/ 
+  display: flex; /* Fazedn o com que deixe os itens detro dele um ao lado do outro */
+  flex-wrap: wrap; /* Para que as imagens quebrem */
+}
+
+
+.sobre-info {
+  /* flex: 2 1 0; quando usamos ele da maneir aque stá embaixo ele faz: 2 para o flex-grow; flex-shink: 1; flex-basis: 0 */
+
+  /* tendo esse "shink" de '1' por que caso ele sejá '0', quando o conteúdo chegar a 300px ou menos, ele não tentará mais enchaixar o conteúdo na tela e irá apenas ficar fixo  */
+  flex: 2 1 300px; /* Colocando como "flex: 2" para que as informações ocupe 2 vezes mais espaço do que as imagens, ocupando praticamente a metade do container */
+  /* margin: 0 10px; */
+
+
+  /* Asiconando um "flex-basis", passando um valor para que ele quebre até ele cehagr o valor mínimo passado, então nesse caso quando ele chegar aos 300px ele irá quebrar, e não esperar o conteúdo ficar minímo e só assim quebrar */
+
+}
+
+.sobre-info h1 {
+  font-size: 3em;
+  margin-bottom: .5em;
+}
+
+.sobre-info p {
+  font-size: 1.25em;
+  line-height: 1.4;
+  margin-bottom: 1em;
+  color: var(--text-sobre);
+}
+
+.sobre-img { /* Falando com a div que contem as imagens */
+  flex: 1 1 160px; /* Asiconando um "flex-basis", passando um valor para que ele quebre até ele cehagr o valor mínimo passado, então nesse caso quando ele chegar aos 300px ele irá quebrar, e não esperar o conteúdo ficar minímo e só assim quebrar */
+
+  margin: 0 10px; /* Dando um espaçamentro entre as imagens */
 }
